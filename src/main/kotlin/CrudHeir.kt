@@ -26,6 +26,10 @@ object NoteService : Crud {
                 }
         return false
     }
+    fun getComments(id: Int) {
+        val note = notesArray.find { it.noteId == id } ?: throw NoteNotFoundException("Заметка не найдена")
+        get(note.comments)
+    }
 }
     fun main() {
 
@@ -48,6 +52,7 @@ object NoteService : Crud {
         println()
         NoteService.getById(2)
         NoteService.restoreComment(1)
+        NoteService.getComments(2)
     }
 
 

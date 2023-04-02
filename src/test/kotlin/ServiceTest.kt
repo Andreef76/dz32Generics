@@ -44,4 +44,8 @@ class ServiceTest {
         assertTrue(result)
 
     }
+    @Test(expected = NoteNotFoundException::class)
+    fun getCommentsTest() {
+        val result = NoteService.getComments(3)
+    }
 }

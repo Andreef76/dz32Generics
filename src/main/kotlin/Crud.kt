@@ -6,7 +6,7 @@ interface Crud {
     }
 
     fun <T> edit(list: MutableList<T>, element: T): Boolean {
-        list.find { it == element } ?: return throw NoteNotFoundException("Пост не найден")
+        list.find { it == element } ?: return throw NoteNotFoundException("Заметка не найдена")
         val index = list.indexOf(element)
         list.removeAt(index)
         list.add(index, element)
